@@ -16,7 +16,18 @@ const Products = () => {
 
 
   return (
-    <div>Products</div>
+    <div className='productsWrapper'>
+      {
+        products.map((product) =>(
+          <div className='card' key={product.id}>
+            <img src={product.image} alt='photo'/>
+            <h4>{product.title}</h4>
+            <h5>{product.price}</h5>
+            <button className='btn'>Add to Cart</button>
+          </div>
+        ))
+      }
+    </div>
   )
 }
 

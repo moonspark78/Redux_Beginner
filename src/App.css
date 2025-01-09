@@ -28,6 +28,10 @@
   margin-left: 20px;
 }
 
+img{
+  height: 80px;
+}
+
 .card{
   background: white;
   padding: 20px;
