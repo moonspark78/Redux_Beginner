@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
 
 
 
@@ -12,9 +11,12 @@ const cartSlice = createSlice({
     reducers: {
         add(state, action) {
             // Redux
-            return [...state, action.payload]
+            //return [...state, action.payload]
             state.push(action.payload)
         },
-        remove() {},
+        remove(state, action) {},
     }
 })
+
+export const {add, remove} = cartSlice.actions;
+export default cartSlice.reducer;
