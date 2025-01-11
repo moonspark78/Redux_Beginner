@@ -7,7 +7,7 @@ const initialState = [];
 
 const cartSlice = createSlice({
     name: 'cart',
-    initialState,
+    initialState: [],
     reducers: {
         add(state, action) {
             // Redux
