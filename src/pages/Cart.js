@@ -11,8 +11,13 @@ const Cart = () => {
     <div>
         <h3>Cart</h3>
         <div className='cartWrapper'>
-          {products.mapp(product =>  (
-            <div></div>
+          {products.map(product =>  (
+            <div className='cartCard'>
+              <img src={product.image} alt={product.title}/>
+              <h5>{product.title}</h5>
+              <h5>{product.price}</h5>
+              <button className='btn'>Remove</button>
+            </div>
           ))}
         </div>
     </div>
