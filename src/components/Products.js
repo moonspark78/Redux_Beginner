@@ -15,6 +15,11 @@ const Products = () => {
      },[])
 
 
+     const handleAdd = (product) =>{
+
+     }
+
+
   return (
     <div className='productsWrapper'>
       {
@@ -23,7 +28,7 @@ const Products = () => {
             <img src={product.image} alt='photo'/>
             <h4>{product.title}</h4>
             <h5>{product.price}</h5>
-            <button className='btn'>Add to Cart</button>
+            <button onClick={() => handleAdd(product)} className='btn'>Add to Cart</button>
           </div>
         ))
       }
