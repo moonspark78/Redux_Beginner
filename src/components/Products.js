@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { add } from '../store/cartSlice'
 
 const Products = () => {
+  const dispatch =useDispatch()
      const [products, setProducts] = useState([])
 
 
@@ -15,8 +18,8 @@ const Products = () => {
      },[])
 
 
-     const handleAdd = (product) =>{
-
+    const handleAdd = (product) =>{
+      dispatch(add(product))
      }
 
 
@@ -25,7 +28,7 @@ const Products = () => {
       {
         products.map((product) =>(
           <div className='card' key={product.id}>
-            <img src={product.image} alt='photo'/>
+            <img src={product.image} alt={product.title}/>
             <h4>{product.title}</h4>
             <h5>{product.price}</h5>
             <button onClick={() => handleAdd(product)} className='btn'>Add to Cart</button>
