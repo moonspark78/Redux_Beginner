@@ -12,23 +12,36 @@ const productsSlice = createSlice({
     
     initialState: {
         data: [],
-        status: '',
+        status: STATUSES.IDLE,
     },
 
     reducers: {
-        add(state, action) {
-            // Redux
-            //return [...state, action.payload]
-            state.push(action.payload)
+        setProducts(state, action) {
+           state.data = action.payload
         },
-
-
-        remove(state, action) {
-            return state.filter((item) => item.id !== action.payload);
+        setStatus(state, action) {
+           state.status = action.payload
         },
     }
 })
 
-export const {add, remove} = productsSlice.actions;
+export const {setProducts, setStatus} = productsSlice.actions;
 export default productsSlice.reducer;
 
+
+
+//Thunks
+
+export function fetchProducts(){
+    return async function fetchProductsThunks(dispatch, getState) {
+        dispatch(setStatus(STATUSES.LOADING))
+        try {
+            const response = await fetch('https://fakestoreapi.com/products')
+            const data = await response.json()
+            dispatch(setProducts(data))
+            dispatch(setStatus(STATUSES.IDLE))
+        } catch (error) {
+            
+        }
+    }
+}
